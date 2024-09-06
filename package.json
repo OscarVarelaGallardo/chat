@@ -12,6 +12,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit"
+    
   },
   "dependencies": {
     "flowbite-react": "^0.8.0",
