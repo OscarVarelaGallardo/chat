@@ -1,4 +1,4 @@
-import Boton from './Boton'
+
 import Input from './Input'
 const Chat = () => {
 
