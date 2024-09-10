@@ -62,7 +62,7 @@ const Mapa: React.FC = () => {
 
                 <div style={{ height: '400px', width: '100%' }}>
                     <GoogleMapReact
-                        bootstrapURLKeys={{ key: 'AIzaSyAeJZpAgbe52r80_7Q1R1RDADNcuNpkDhw' }}
+                        bootstrapURLKeys={{ key:  process.env.REACT_APP_GOOGLE_MAPS_API_KEY || '' }}
                         defaultCenter={{ lat: 0, lng: 0 }}
                         defaultZoom={15}
                         center={myUbication || { lat: 0, lng: 0 }}
