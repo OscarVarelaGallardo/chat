@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <main className="flex min-h-screen items-center justify-center gap-2 dark:bg-gray-800">
+    <main className="flex flex-col min-h-screen items-center justify-center gap-2 dark:bg-gray-800">
   
       <Router>
         <Routes>

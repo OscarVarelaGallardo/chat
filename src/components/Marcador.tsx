@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import GoogleMapReact from 'google-map-react';
-import Marcador from './Marcador'
 
 const Marker: React.FC<{ lat: number; lng: number }> = () => (
     <div style={{
@@ -28,12 +27,9 @@ const Mapa: React.FC = () => {
         });
     };
 
-    
-
     useEffect(() => {
         if (myUbication) {
             console.log(myUbication);
-            setMyUbication(myUbication);
         }
     }, [myUbication]);
 
@@ -43,7 +39,7 @@ const Mapa: React.FC = () => {
 
     return (
         <>
-            <div className='w-100'>
+            <div className='w-100 h-72 mb-60'>
                 <h1 className="text-2xl font-semibold text-green-600 dark:text-white">Ubicación</h1>
                 <p className="text-sm text-gray-500 dark:text-gray-400">Selecciona la ubicación de tu evento</p>
 

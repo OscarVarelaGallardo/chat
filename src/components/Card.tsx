@@ -1,12 +1,75 @@
 import Chat from "./Chat"
-import AnyReactComponent from "./AnyReactComponent"
-const Card = () => {
+import Boton from "./Boton"
+import Mapa from "./Mapa"
+import React, { useEffect, useState } from "react"
+import Notification from "./Notification"
+
+
+const Card:React.FC = () => {
+    const [selected, setSelected] = useState('')
+    const [text, setText ] = useState('')
+    const [notification, setNotification ] = useState(false)
+ 
+    const handleSelected = (text: string) => {
+        if (text.length > 0) {
+            setSelected(text);
+            handleMenu(text); // Use the new text value
+            setNotification(false);
+        }
+    };
+
+    useEffect(() => {
+        handleSelected(text);
+    }, [text]);
+
+    const handleMenu = (menu:string ) => {
+        console.log(menu)
+        switch (menu) {
+            case "map":
+                setSelected(menu)
+            break
+            case "video":
+                setSelected(menu)
+            break
+            case "microphone":
+                setSelected(menu)
+            break
+            case "chat":
+                setSelected(menu)
+                break
+            case "settings":
+                setSelected(menu)
+                break
+            default:
+                setText('Opción no valida por favor ingresa una ')
+                setNotification(true)
+                setTimeout(()=>{
+                    setNotification(false )
+                },5000)
+            break
+        }
+
+    }
     return (
         <>
-            <a href="#" className="block max-w-md p-8 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-                <AnyReactComponent />
-                <Chat  />
-            </a>
+            <div className=" w-5/6">
+                
+               {notification && <Notification text={text}></Notification>}
+                <Boton handleSelected={handleSelected} />
+                {
+                    selected == "map" ?
+                    <Mapa/>:
+                    selected == "chat"?
+                    <Chat/> :
+                    !selected &&
+                    <Notification text="No existe la vista"/>
+                   
+
+                }
+
+
+            </div>
+
         </>
     )
 }
