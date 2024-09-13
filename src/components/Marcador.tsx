@@ -1,43 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import GoogleMapReact from 'google-map-react';
+// Marcador.tsx
+import React from 'react';
 
-const Marker: React.FC<{ lat: number; lng: number }> = () => (
-    <div style={{
-        color: 'red',
-        background: 'white',
-        borderRadius: '50%',
-        padding: '10px',
-        display: 'inline-flex',
-        textAlign: 'center',
-        alignItems: 'center',
-        justifyContent: 'center',
-        transform: 'translate(-50%, -50%)'
-    }}>
-        📍
-    </div>
-);
 
-const Mapa: React.FC = () => {
-    const [myUbication, setMyUbication] = useState<{ lat: number, lng: number } | null>(null);
 
-    const handleGetMyUbication = () => {
-        navigator.geolocation.getCurrentPosition((position) => {
-            const { latitude, longitude } = position.coords;
-            setMyUbication({ lat: latitude, lng: longitude });
-        });
-    };
 
-    useEffect(() => {
-        if (myUbication) {
-            console.log(myUbication);
-        }
-    }, [myUbication]);
-
-    const handleUbication = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target.value);
-    };
+const Marcador: React.FC = () => {
 
     return (
+
         <>
             <div className='w-100 h-72 mb-60'>
                 <h1 className="text-2xl font-semibold text-green-600 dark:text-white">Ubicación</h1>
@@ -68,7 +38,22 @@ const Mapa: React.FC = () => {
                 </div>
             </div>
         </>
+
+        <div style={{
+            color: 'red',
+            background: 'white',
+            borderRadius: '50%',
+            padding: '10px',
+            display: 'inline-flex',
+            textAlign: 'center',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transform: 'translate(-50%, -50%)'
+        }}>
+            📍 
+        </div>
+
     );
 };
 
-export default Mapa;
+export default Marcador;
