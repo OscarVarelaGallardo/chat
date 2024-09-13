@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { FaMap, 
     FaRegComment
-
  } from 'react-icons/fa';
 import { getDate } from '../helpers/index.ts'
 

@@ -3,13 +3,14 @@ import Boton from "./Boton"
 import Mapa from "./Mapa"
 import React, { useEffect, useState } from "react"
 import Notification from "./Notification"
+import MainView from "./MainView"
 
 
-const Card:React.FC = () => {
+const Card: React.FC = () => {
     const [selected, setSelected] = useState('')
-    const [text, setText ] = useState('')
-    const [notification, setNotification ] = useState(false)
- 
+    const [text, setText] = useState('')
+    const [notification, setNotification] = useState(false)
+
     const handleSelected = (text: string) => {
         if (text.length > 0) {
             setSelected(text);
@@ -22,18 +23,18 @@ const Card:React.FC = () => {
         handleSelected(text);
     }, [text]);
 
-    const handleMenu = (menu:string ) => {
+    const handleMenu = (menu: string) => {
         console.log(menu)
         switch (menu) {
             case "map":
                 setSelected(menu)
-            break
+                break
             case "video":
                 setSelected(menu)
-            break
+                break
             case "microphone":
                 setSelected(menu)
-            break
+                break
             case "chat":
                 setSelected(menu)
                 break
@@ -43,27 +44,27 @@ const Card:React.FC = () => {
             default:
                 setText('Opción no valida por favor ingresa una ')
                 setNotification(true)
-                setTimeout(()=>{
-                    setNotification(false )
-                },5000)
-            break
+                setTimeout(() => {
+                    setNotification(false)
+                }, 5000)
+                break
         }
 
     }
     return (
         <>
             <div className=" w-5/6">
-                
-               {notification && <Notification text={text}></Notification>}
+
+                {notification && <Notification type="info" text={text}></Notification>}
                 <Boton handleSelected={handleSelected} />
                 {
                     selected == "map" ?
-                    <Mapa/>:
-                    selected == "chat"?
-                    <Chat/> :
-                    !selected &&
-                    <Notification text="No existe la vista"/>
-                   
+                        <Mapa /> :
+                        selected == "chat" ?
+                            <Chat /> :
+                            selected == "MainView" ?
+                                < MainView /> :
+                                !selected && <MainView />
 
                 }
 
