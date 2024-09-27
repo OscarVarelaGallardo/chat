@@ -1,9 +1,11 @@
 import Chat from "./Chat"
 import Layouta from "./Layout"
 import Mapa from "./Mapa"
+import VideoChat from "./VideoChat"
 import React, { useEffect, useState } from "react"
 import Notification from "./Notification"
 import MainView from "../views/MainView"
+
 
 
 const Card: React.FC = () => {
@@ -64,13 +66,15 @@ const Card: React.FC = () => {
 
                     selected == "home" ?
                         <MainView/>:
-                    selected == "map" ?
-                        <Mapa /> :
-                        selected == "chat" ?
-                            <Chat /> :
-                            selected == "MainView" ?
-                                < MainView /> :
-                                !selected && <MainView />
+                        selected == "map" ?
+                            <Mapa /> :
+                            selected=="video"?
+                                <VideoChat/>:
+                            selected == "chat" ?
+                                <Chat /> :
+                                selected == "MainView" ?
+                                    < MainView /> :
+                                    !selected && <MainView />
 
                 }
 

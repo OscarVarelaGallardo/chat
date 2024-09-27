@@ -55,7 +55,14 @@ const icons = [
     "alt": "setting-icon",
     "span": "",
     "name":"Ajustes"
+  },
+  {
+    "url":"https://openclipart.org/image/800px/307612",
+    "alt":"salir-icon",
+    "span":"",
+    "name":"Salir"
   }
+
 ]
 
 

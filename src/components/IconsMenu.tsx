@@ -8,6 +8,7 @@ interface IconsMenuPros {
 }
 
 const IconsMenu: React.FC<IconsMenuPros> = ({ url, alt, span, name }) => {
+    
     return (
         <div className={span}>
             <img
