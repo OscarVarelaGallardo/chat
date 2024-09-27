@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react"
-import { FaMap, 
+import { 
+    
+    FaHome,
+    FaMap, 
     FaRegComment
  } from 'react-icons/fa';
 import { getDate } from '../helpers/index.ts'
@@ -9,7 +12,7 @@ interface BotonProps {
 }
 
 
-const Boton: React.FC<BotonProps> = ({ handleSelected }) => {
+const Layout: React.FC<BotonProps> = ({ handleSelected }) => {
     const [hour, setHour] = useState('')
 
 
@@ -38,6 +41,17 @@ const Boton: React.FC<BotonProps> = ({ handleSelected }) => {
                     </span>
                 </div>
                 <div className="flex items-center justify-center mx-auto">
+                    <button data-tooltip-target="tooltip-camera" type="button"
+                        onClick={() => handleSelected("home")}
+                        className="p-2.5 bg-gray-100 group rounded-full hover:bg-gray-200 me-4 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:bg-gray-600 dark:hover:bg-gray-800">
+                        <FaHome className="w-4 h-4 text-gray-500 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white" />
+                        <span className="sr-only">Home</span>
+                    </button>
+
+                    <div id="tooltip-microphone" role="tooltip" className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                        Home
+                        <div className="tooltip-arrow" data-popper-arrow></div>
+                    </div> 
                     <button data-tooltip-target="tooltip-camera" type="button"
                         onClick={() => handleSelected("map")}
                         className="p-2.5 bg-gray-100 group rounded-full hover:bg-gray-200 me-4 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:bg-gray-600 dark:hover:bg-gray-800">
@@ -75,7 +89,7 @@ const Boton: React.FC<BotonProps> = ({ handleSelected }) => {
                         onClick={() => handleSelected('chat')}
                     >
                         <svg className="w-4 h-4 text-gray-500 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12.25V1m0 11.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M4 19v-2.25m6-13.5V1m0 2.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M10 19V7.75m6 4.5V1m0 11.25a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM16 19v-2" />
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="inherit" strokeWidth={2} d="M4 12.25V1m0 11.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M4 19v-2.25m6-13.5V1m0 2.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M10 19V7.75m6 4.5V1m0 11.25a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM16 19v-2" />
                         </svg>
                         <span className="sr-only">Video settings</span>
                     </button>
@@ -145,4 +159,4 @@ const Boton: React.FC<BotonProps> = ({ handleSelected }) => {
     )
 }
 
-export default Boton
+export default Layout

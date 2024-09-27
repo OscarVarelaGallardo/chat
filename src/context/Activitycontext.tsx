@@ -12,9 +12,7 @@ export const ActivityProvider = ({ children }: ActivityContextProps) => {
 
 
     return (
-        <ActivityContext.Provider value={{
-
-        }} >
+        <ActivityContext.Provider value={{ }} >
             {children}
         </ActivityContext.Provider>
     )

@@ -21,7 +21,7 @@ const Mapa: React.FC = () => {
   
     return (
         <>
-            <div className='w-100 h-72 mb-60'>
+            <div className='w-full h-auto'>
                 <h1 className="text-2xl font-semibold text-green-600 dark:text-white">Ubicación</h1>
                 <p className="text-sm text-gray-500 dark:text-gray-400">Selecciona la ubicación de tu evento</p>
 

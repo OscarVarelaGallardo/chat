@@ -9,10 +9,9 @@ const Home = () => {
     }, 5000)
     return (
         <>
-            {!notification &&
-                <Notification type={"succes"} text={"Bienvenido "} />
-            }
+            
             <Card />
+           
         </>
     )
 }

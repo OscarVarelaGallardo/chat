@@ -1,9 +1,9 @@
 import Chat from "./Chat"
-import Boton from "./Boton"
+import Layouta from "./Layout"
 import Mapa from "./Mapa"
 import React, { useEffect, useState } from "react"
 import Notification from "./Notification"
-import MainView from "./MainView"
+import MainView from "../views/MainView"
 
 
 const Card: React.FC = () => {
@@ -24,8 +24,10 @@ const Card: React.FC = () => {
     }, [text]);
 
     const handleMenu = (menu: string) => {
-        console.log(menu)
         switch (menu) {
+            case "home":
+                setSelected(menu)
+                break
             case "map":
                 setSelected(menu)
                 break
@@ -53,11 +55,15 @@ const Card: React.FC = () => {
     }
     return (
         <>
-            <div className=" w-5/6">
+            <div className=" w-6/6">
 
                 {notification && <Notification type="info" text={text}></Notification>}
-                <Boton handleSelected={handleSelected} />
+                <Layouta handleSelected={handleSelected} />
+
                 {
+
+                    selected == "home" ?
+                        <MainView/>:
                     selected == "map" ?
                         <Mapa /> :
                         selected == "chat" ?
