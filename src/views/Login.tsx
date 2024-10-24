@@ -53,9 +53,10 @@ const Login: React.FC<LoginProps> = () => {
     }
 
     return (
-        <>
-            <img src={img} className='h-64 w-64'>
-            </img>
+        <div className='flex flex-col'>  
+            <div className='flex items-center h-auto  justify-center'>
+            <img src={img} className='h-64 w-64'/>
+            </div>
             <form className="w-2/4 mx-auto py-8" onSubmit={handleSubmit} >
                 <div className="mb-5">
                     <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tu correo electronico</label>
@@ -83,7 +84,7 @@ const Login: React.FC<LoginProps> = () => {
 
             {error && <Notification text={text} type={type} ></Notification>}
 
-        </>
+        </div>
     )
 }
 

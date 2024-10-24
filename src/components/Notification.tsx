@@ -36,7 +36,8 @@ const Notification: React.FC<NotificationProps> = ({ text, type }) => {
 
   return (
 
-    <div id="notification"  className={`flex items-center w-full max-w-xs p-4 text-white-500 rounded-lg shadow bg-${color}-600 `} role="alert">
+    <div id="notification" className={`flex m-auto justify-center items-center w-1/2  p-4 text-white-500 rounded-lg shadow bg-${color}-600 `} role="alert">
+      <img></img>
       <div className={`inline-flex items-center justify-center flex-shrink-0 w-8 h-8 bg-${color}-600 bg-blue-100 rounded-lg dark:bg-${color}-800 dark:text-${color}-200 text-md`}>
       </div>
       <div className="ms-3 text-sm   text-white font-bold">{text}</div>
